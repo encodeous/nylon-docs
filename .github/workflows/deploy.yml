@@ -19,6 +19,17 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v6
+      - name: Checkout nylon docs content
+        uses: actions/checkout@v6
+        with:
+          repository: encodeous/nylon
+          path: nylon
+          sparse-checkout: |
+            docs
+      - name: Copy docs into site content
+        run: |
+          mkdir -p src/content/docs
+          cp -R nylon/docs/. src/content/docs/
       - name: Install, build, and upload your site
         uses: withastro/action@v6
         # with:
