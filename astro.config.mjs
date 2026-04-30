@@ -11,6 +11,7 @@ export default defineConfig({
 		}),
 		starlight({
 			title: 'nylon docs',
+			routeMiddleware: './src/routeData.ts',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/encodeous/nylon' }],
 			sidebar: [
 				{
