@@ -27,6 +27,10 @@ export default defineConfig({
           link: "/",
         },
         {
+          label: "Why Nylon?",
+          link: "/why-nylon",
+        },
+        {
           label: "Guides",
           autogenerate: { directory: "guides" },
         },
