@@ -1,0 +1,23 @@
+---
+interface Props {
+  src: string;
+  cols?: number;
+  rows?: number;
+}
+
+const { src, cols = 140, rows = 35 } = Astro.props;
+const id = `asciinema-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<link rel="stylesheet" href="https://unpkg.com/asciinema-player@3/dist/bundle/asciinema-player.css" />
+<div id={id}></div>
+<script is:inline src="https://unpkg.com/asciinema-player@3/dist/bundle/asciinema-player.min.js"></script>
+<script is:inline define:vars={{ id, src, cols, rows }}>
+  AsciinemaPlayer.create(src, document.getElementById(id), {
+    cols: cols,
+    rows: rows,
+    autoPlay: true,
+    loop: true,
+    idleTimeLimit: 2
+  });
+</script>
